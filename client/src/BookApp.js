@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AddReviewModal from './components/modal/AddReviewModal'
+import ButtonModal from './components/generic/ButtonModal'
 
 const BookApp = () => {
+    const [modal, setModal] = useState(false)
     return (
         <main>
-            <h1>Hey</h1>
+            <ButtonModal setModal={setModal} modal={modal} />
+            {modal && <AddReviewModal />}
         </main>
     )
 }
