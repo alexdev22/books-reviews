@@ -6,4 +6,18 @@
 
 body {
   background: #ede0d4;
+  width: 1600px;
+  margin: 0 auto;
+}
+
+.review-container{ 
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-review{
+  padding: 1rem;
+  max-width: 33%;
 }

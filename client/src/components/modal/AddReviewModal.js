@@ -30,11 +30,17 @@ const AddReviewModal = () => {
     return (
 
         <form onSubmit={(e) => handleSubmit(e)} className="container-modal">
+            <label>Date</label>
             <Input handleInputChange={handleInputChange} name="date" type="date" />
+            <label>Stars</label>
             <Input handleInputChange={handleInputChange} name="stars" type="number" />
+            <label>Title</label>
             <Input handleInputChange={handleInputChange} name="title" />
+            <label>Pages</label>
             <Input handleInputChange={handleInputChange} name="pages" type="number" />
+            <label>Author</label>
             <Input handleInputChange={handleInputChange} name="author" />
+            <label>Summary</label>
             <textarea onChange={handleInputChange} name="summary" className="modal-field text-area" />
             <button>Add Book</button>
         </form>
