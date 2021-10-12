@@ -5,8 +5,8 @@ const SingleReview = ({ stars, date, title, pages, author, summarY }) => {
             <p>{author}</p>
             <p>{pages}</p>
             <p>{date}</p>
-            <p>{summarY}</p>
-            <p>{stars}</p>
+            <p>{'x'.repeat(stars)}</p>
+            <button>Read More</button>
         </div>
     )
 }

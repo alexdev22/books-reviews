@@ -14,10 +14,10 @@ body {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  align-items: center;
 }
 
 .single-review{
-  padding: 1rem;
-  max-width: 33%;
+  padding: 3rem;
+  margin: 1rem;
+  background: coral;
 }
