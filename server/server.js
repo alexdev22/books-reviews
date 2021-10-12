@@ -8,8 +8,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.listen(3000, () => {
-    console.log('Listening on port 3000')
+app.listen(3001, () => {
+    console.log('Listening on port 3001')
 })
 
 
@@ -21,6 +21,22 @@ app.get('/reviews', (req, res) => {
 })
 
 app.post('/reviews', (req, res) => {
-    const { }
-    connection.query('INSERT ')
+
+    const { stars, date, title, pages, author, summary } = req.body
+    console.log(stars);
+
+    const SQL = "INSERT INTO reviews (stars, date, title, pages, author, summary) VALUES (?)";
+    const values = [
+        stars,
+        date,
+        title,
+        pages,
+        author,
+        summary
+    ]
+    connection.query(SQL, [values])
+
+    res.send('Added to database')
+
 })
+
