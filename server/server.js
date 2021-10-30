@@ -8,8 +8,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.listen(3001, () => {
-    console.log('Listening on port 3001')
+app.listen(3003, () => {
+    console.log('Listening on port 3003')
 })
 
 
@@ -17,7 +17,6 @@ app.get('/reviews', (req, res) => {
     connection.query('SELECT * FROM reviews', (err, results, fields) => {
         res.json(results)
     })
-
 })
 
 app.delete('/reviews/:id', (req, res) => {

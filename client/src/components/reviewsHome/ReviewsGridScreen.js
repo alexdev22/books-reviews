@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import SingleReview from './SingleReview'
 
-const ReviewsGrid = () => {
+const ReviewsGridScreen = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
 
-        fetch('http://localhost:3001/reviews')
+        fetch('http://localhost:3003/reviews')
             .then(response => response.json())
             .then(data => setReviews(data))
     }, [])
@@ -28,4 +28,4 @@ const ReviewsGrid = () => {
     )
 }
 
-export default ReviewsGrid
+export default ReviewsGridScreen

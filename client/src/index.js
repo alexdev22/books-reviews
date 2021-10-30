@@ -4,9 +4,7 @@ import './app.css';
 import BookApp from './BookApp';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BookApp />
-  </React.StrictMode>,
-  document.getElementById('root')
+  
+    <BookApp />, document.getElementById('root')
 );
 

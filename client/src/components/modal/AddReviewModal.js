@@ -1,5 +1,4 @@
 import React from 'react'
-import './modal.css'
 import useForm from '../../hooks/useForm'
 import Input from './Input'
 
@@ -23,7 +22,6 @@ const AddReviewModal = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(values)
-
         })
     }
 
