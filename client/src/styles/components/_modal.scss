@@ -1,7 +1,7 @@
 .container-modal {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -13,4 +13,8 @@
 .text-area {
   padding: 5rem;
   max-width: 610px;
+}
+
+.modal__addbutton {
+  display: block;
 }

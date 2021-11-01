@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import useForm from '../../hooks/useForm'
 import Input from './Input'
 
-const AddReviewModal = () => {
+const AddReviewScreen = () => {
 
     const [values, handleInputChange] = useForm({
         date: '',
@@ -15,7 +15,7 @@ const AddReviewModal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(JSON.stringify(values));
+ 
         fetch('http://localhost:3001/reviews', {
             method: 'POST',
             headers: {
@@ -46,4 +46,4 @@ const AddReviewModal = () => {
     )
 }
 
-export default AddReviewModal
+export default AddReviewScreen

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import SingleReview from './SingleReview'
-
+import Review from './Review'
+import AddReviewScreen from '../modal/AddReviewScreen'
 const ReviewsGridScreen = () => {
-
+    const [modal, setModal] = useState(false)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
 
@@ -13,10 +13,12 @@ const ReviewsGridScreen = () => {
 
     return (
         <section className="review-container">
+           
+           
             {reviews.map(review => {
                 return (
                     <div key={review.id}>
-                        <SingleReview {...review} />
+                        <Review {...review} />
                     </div>
                 )
             }
