@@ -11,9 +11,15 @@ const createUser = (req, res) => {
       console.log(err)
     } else {
       const encryptedPassword = bcrypt.genSalt(10, (err, salt) => {
-        console.log(err)
-        bcrypt.hash(password, salt, (err, hash) => {
+        if (err) {
           console.log(err)
+        }
+
+        bcrypt.hash(password, salt, (err, hash) => {
+          if (err) {
+            console.log(err)
+          }
+
           const sql = 'INSERT INTO users (username, password) VALUES (?)'
           const values = [username, hash]
           connection.query(sql, [values])

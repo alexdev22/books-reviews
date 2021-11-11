@@ -21,8 +21,6 @@ const verifyToken = (req, res, next) => {
     console.log(error)
   }
 
-  console.log(token)
-
   next()
 }
 

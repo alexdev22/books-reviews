@@ -2,7 +2,10 @@ const connection = require('../database')
 
 const getAllReviews = (req, res) => {
   connection.query('SELECT * FROM reviews', (err, results, fields) => {
-    console.log(err)
+    if (err) {
+      console.log(err)
+    }
+
     res.json(results)
   })
 }
@@ -32,8 +35,6 @@ const postReview = (req, res) => {
     connection.query(SQL, [values])
     res.send('Added to database')
   }
-
-  console.log(Object.keys(req.body).length)
 }
 
 module.exports = {
