@@ -25,19 +25,41 @@ const createUser = (req, res) => {
   })
 }
 
+const generateAccesToken = (payload) => {
+  return jwt.sign(payload, process.env.JWT_KEY, {
+    expiresIn: '2h'
+  })
+}
+
+const generateRefreshToken = (payload) => {
+  return jwt.sign(payload, process.env.JWT_KEY_REFRESH, {
+    expiresIn: '2h'
+  })
+}
+
 const loginUser = async (req, res) => {
   const { username, password } = req.body
-
-  connection.query('SELECT (password) FROM users WHERE username=?', [username], (err, results, fields) => {
-    console.log(err)
+  connection.query('SELECT * FROM users WHERE username=?', [username], (err, results) => {
+    if (err) {
+      console.log(err)
+    }
     bcrypt.compare(password, results[0].password, (err, result) => {
       if (result) {
-        console.log(err)
+        if (err) {
+          console.log(err)
+        }
         const payload = {
+          id: results[0].id,
           username
         }
-        const token = jwt.sign(payload, process.env.JWT_KEY)
-        res.send(token)
+        const accessToken = generateAccesToken(payload)
+        const refreshToken = generateRefreshToken(payload)
+
+        res.json({
+          auth: true,
+          accessToken
+
+        })
       } else {
         res.send('User Or Password is invalid')
       }
@@ -45,11 +67,28 @@ const loginUser = async (req, res) => {
   })
 }
 
-const renewToken = () => {
-  jwt.verify()
+const renewToken = (req, res) => {
+  const id = req.id
+  const username = req.username
+  const newToken = jwt.sign({ username, id }, process.env.JWT_KEY, { expiresIn: '2h' })
+
+  id
+    ? res.json({
+        ok: true,
+        msg: 'renew',
+        id,
+        username,
+        newToken
+      })
+    : res.json({
+      ok: false,
+      msg: 'Token is invalid'
+    })
 }
 
 module.exports = {
   createUser,
-  loginUser
+  loginUser,
+  renewToken
+
 }

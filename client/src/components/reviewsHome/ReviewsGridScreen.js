@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Review from './Review'
-import AddReviewScreen from '../modal/AddReviewScreen'
+
 const ReviewsGridScreen = () => {
-  const [modal, setModal] = useState(false)
   const [reviews, setReviews] = useState([])
   useEffect(() => {
     fetch('http://localhost:3003/reviews')
