@@ -1,6 +1,9 @@
 @import "./base/base.scss";
 
 // Components
-@import "./components/modal";
 @import "./components/reviews-grid";
 @import "./components/sidebar";
+@import "./components/login";
+@import "./components/addReview";
+@import "./components/register";
+@import "./components/singleReview";

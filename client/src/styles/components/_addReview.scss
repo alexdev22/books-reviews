@@ -1,20 +1,21 @@
-.container-modal {
+.container-addReview {
+  flex: 5;
+}
+.form-addReview {
   display: flex;
   flex-direction: column;
-  width: 50%;
   margin: 0 auto;
+  padding: 20px;
+  width: 50%;
 }
-
 .modal-field {
   margin: 0.25rem;
   padding: 1rem;
 }
-
 .text-area {
   padding: 5rem;
   max-width: 610px;
 }
-
 .modal__addbutton {
   display: block;
 }

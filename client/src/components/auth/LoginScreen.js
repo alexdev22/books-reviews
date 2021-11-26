@@ -1,33 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import useForm from '../../hooks/useForm'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
+import { handleLogin } from '../../context/apiCalls'
+import { logout } from '../../context/AuthActions'
 
 const LoginScreen = () => {
   const [values, handleInputChange] = useForm({
     username: '',
     password: ''
   })
-
   const { username, password } = values
+  const { isFetching, dispatch } = useContext(AuthContext)
 
-  const handleLogin = (e) => {
-    e.preventDefault()
-    fetch('http://localhost:3003/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(values)
-    })
-      .then(response => response.json())
-      .then(data => localStorage.setItem('jwt', data.accessToken))
+  const handleLogOut = () => {
+    dispatch(logout)
   }
 
   return (
-    <form onSubmit={(e) => handleLogin(e)}>
-      <input onChange={handleInputChange} name='username' value={username} />
-      <input onChange={handleInputChange} name='password' value={password} />
-      <button>Login</button>
-    </form>
+    <>
+      <form onSubmit={(e) => handleLogin({ username, password }, dispatch, e)} className='login-container'>
+        <input onChange={handleInputChange} name='username' value={username} />
+        <input onChange={handleInputChange} name='password' value={password} />
+        <button disabled={isFetching}>Login</button>
+        <p>Not having an account? <Link to='/register'>Register Here</Link>
+        </p>
+      </form>
+      <button onClick={handleLogOut}>Logout</button>
+    </>
   )
 }
 

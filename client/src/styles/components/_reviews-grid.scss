@@ -10,10 +10,11 @@ body {
 }
 
 .review-container {
+  flex: 5;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  width: 80vw;
+  width: 100%;
 }
 
 .single-review {

@@ -8,12 +8,12 @@ const ReviewScreen = ({ history }) => {
 
   useEffect(() => {
     filterBytitle(id, setBook)
-  }, [])
+  }, [id])
 
   const { title, date, pages, author } = book
 
   return (
-    <div>
+    <div className='singleReview'>
       <h1>{title}</h1>
       <h1>{date}</h1>
       <h1>{pages}</h1>

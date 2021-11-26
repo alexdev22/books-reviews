@@ -4,5 +4,7 @@ import BookApp from './BookApp'
 
 ReactDOM.render(
 
-  <BookApp />, document.getElementById('root')
+  <BookApp />,
+
+  document.getElementById('root')
 )

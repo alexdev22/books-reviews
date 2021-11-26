@@ -4,8 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const createUser = (req, res) => {
   const { username, password } = req.body
-
-  connection.query('SELECT * FROM users WHERE username=?', [username], (err, results, fields) => {
+  connection.query('SELECT * FROM users WHERE username=?', [username], (err, results) => {
     if (results.length > 0) {
       res.send('User Already Exist')
       console.log(err)
@@ -33,13 +32,7 @@ const createUser = (req, res) => {
 
 const generateAccesToken = (payload) => {
   return jwt.sign(payload, process.env.JWT_KEY, {
-    expiresIn: '2h'
-  })
-}
-
-const generateRefreshToken = (payload) => {
-  return jwt.sign(payload, process.env.JWT_KEY_REFRESH, {
-    expiresIn: '2h'
+    expiresIn: '2d'
   })
 }
 
@@ -59,8 +52,6 @@ const loginUser = async (req, res) => {
           username
         }
         const accessToken = generateAccesToken(payload)
-        const refreshToken = generateRefreshToken(payload)
-
         res.json({
           auth: true,
           accessToken
@@ -76,7 +67,7 @@ const loginUser = async (req, res) => {
 const renewToken = (req, res) => {
   const id = req.id
   const username = req.username
-  const newToken = jwt.sign({ username, id }, process.env.JWT_KEY, { expiresIn: '2h' })
+  const newToken = jwt.sign({ username, id }, process.env.JWT_KEY, { expiresIn: '2d' })
 
   id
     ? res.json({

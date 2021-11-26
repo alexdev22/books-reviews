@@ -10,6 +10,7 @@ const Sidebar = () => {
       <Link to='/'>
         <button>Show Books</button>
       </Link>
+      <button>Logout Now</button>
     </div>
   )
 }
