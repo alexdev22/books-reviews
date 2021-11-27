@@ -21,13 +21,16 @@ const AppRouter = () => {
             </Route>
             <Route exact path='/register' component={RegisterScreen} />
 
-            {user && (
-              <>
-                <Route exact path='/addreview' component={AddReviewScreen} />
-                <Route exact path='/review/:id' component={ReviewScreen} />
-                <Route exact path='/' component={ReviewsGridScreen} />
-              </>
-            )}
+            {user
+
+              ? (
+                <>
+                  <Route exact path='/addreview' component={AddReviewScreen} />
+                  <Route exact path='/review/:id' component={ReviewScreen} />
+                  <Route exact path='/' component={ReviewsGridScreen} />
+                </>
+                )
+              : <Redirect to='/login' />}
 
           </Switch>
         </div>
