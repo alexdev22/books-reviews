@@ -1,7 +1,8 @@
 const connection = require('../database')
 
 const getAllReviews = (req, res) => {
-  connection.query('SELECT * FROM reviews', (err, results, fields) => {
+  const id = req.id
+  connection.query(`SELECT * FROM reviews WHERE userid = ${id}`, (err, results, fields) => {
     if (err) {
       console.log(err)
     }
@@ -18,15 +19,17 @@ const deleteReview = (req, res) => {
 
 const postReview = (req, res) => {
   const { stars, date, title, pages, author, summary } = req.body
-
-  const SQL = 'INSERT INTO reviews (stars, date, title, pages, author, summary) VALUES (?)'
+  const id = req.id
+  console.log(id)
+  const SQL = 'INSERT INTO reviews (stars, date, title, pages, author, summary, userid) VALUES (?)'
   const values = [
     stars,
     date,
     title,
     pages,
     author,
-    summary
+    summary,
+    id
   ]
 
   if (Object.keys(req.body).length < 1) {

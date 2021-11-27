@@ -3,7 +3,6 @@ import useForm from '../../hooks/useForm'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import { handleLogin } from '../../context/apiCalls'
-import { logout } from '../../context/AuthActions'
 
 const LoginScreen = () => {
   const [values, handleInputChange] = useForm({
@@ -12,10 +11,6 @@ const LoginScreen = () => {
   })
   const { username, password } = values
   const { isFetching, dispatch } = useContext(AuthContext)
-
-  const handleLogOut = () => {
-    dispatch(logout)
-  }
 
   return (
     <>
@@ -26,7 +21,6 @@ const LoginScreen = () => {
         <p>Not having an account? <Link to='/register'>Register Here</Link>
         </p>
       </form>
-      <button onClick={handleLogOut}>Logout</button>
     </>
   )
 }

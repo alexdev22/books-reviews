@@ -1,13 +1,11 @@
 const express = require('express')
 
 const router = express.Router()
-
+const verifyToken = require('../middlewares/verifyToken')
 const { getAllReviews, deleteReview, postReview } = require('../controllers/mainRoutes')
 
-router.get('/', getAllReviews)
-
+router.get('/', verifyToken, getAllReviews)
 router.delete('/:id', deleteReview)
-
-router.post('/', postReview)
+router.post('/', verifyToken, postReview)
 
 module.exports = router

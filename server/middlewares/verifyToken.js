@@ -11,17 +11,16 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    const { id, username } = jwt.verify(
-      token,
-      process.env.JWT_KEY
-    )
-    req.id = id
-    req.username = username
+    const verifyToken = jwt.verify(token, process.env.JWT_KEY)
+    req.id = verifyToken.id
+    req.username = verifyToken.username
+    next()
   } catch (error) {
-    console.log(error)
+    res.status(401).json({
+      ok: false,
+      message: 'Invalid token'
+    })
   }
-
-  next()
 }
 
 module.exports = verifyToken

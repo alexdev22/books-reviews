@@ -14,11 +14,13 @@ const AddReviewScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const token = JSON.parse(localStorage.getItem('user'))
 
-    fetch('http://localhost:3001/reviews', {
+    fetch('http://localhost:3003/reviews', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-token': token.accessToken
       },
       body: JSON.stringify(values)
     })

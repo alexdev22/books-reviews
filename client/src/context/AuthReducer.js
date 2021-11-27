@@ -1,4 +1,5 @@
 const AuthReducer = (state, action) => {
+  console.log(action.type)
   switch (action.type) {
     case 'LOGIN_START':
       return {
@@ -18,11 +19,15 @@ const AuthReducer = (state, action) => {
         isFetching: false,
         error: true
       }
-    case 'LOGOUT':
-      return console.log('logint out')
+    case 'LOGIN_LOGOUT':
+      return {
+        user: null,
+        isFetching: false,
+        error: false
+      }
 
     default:
-      return { ...state }
+      return { state }
   }
 }
 

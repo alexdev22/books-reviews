@@ -4,7 +4,12 @@ import Review from './Review'
 const ReviewsGridScreen = () => {
   const [reviews, setReviews] = useState([])
   useEffect(() => {
-    fetch('http://localhost:3003/reviews')
+    fetch('http://localhost:3003/reviews', {
+      method: 'GET',
+      headers: {
+        'x-token': JSON.parse(localStorage.getItem('user')).accessToken
+      }
+    })
       .then(response => response.json())
       .then(data => setReviews(data))
   }, [])
