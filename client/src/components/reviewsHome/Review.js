@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom'
+import { AiFillStar } from 'react-icons/ai'
+import ReviewItem from './ReviewItem'
 
 const Review = ({ id, stars, date, title, pages, author, summarY }) => {
   return (
     <div className='single-review'>
-      <h1>{title}</h1>
-      <p>{author}</p>
-      <p>{pages}</p>
-      <p>{date}</p>
-      <p>{'x'.repeat(stars)}</p>
+      <div className='singleReviewTitle'>{title}</div>
+      <ReviewItem label='Author:' item={author} />
+      <ReviewItem label='Pages:' item={pages} />
+      <ReviewItem label='Date' item={date} />
+      <div className='singleReviewStarsContainer'>
+        {[...Array(stars)].map((i) => <span className='singleSreviewStars' key={i}>  <AiFillStar className='star-icon' /></span>)}
+      </div>
       <Link to={`/review/${id}`}>
         <button className='reviews-grid__button'>Read More</button>
       </Link>

@@ -41,7 +41,7 @@ const AddReviewScreen = () => {
         <label>Author</label>
         <Input handleInputChange={handleInputChange} name='author' />
         <label>Summary</label>
-        <textarea onChange={handleInputChange} name='summary' className='addReview-field text-area' />
+        <textarea onChange={handleInputChange} name='summary' />
         <button>Add Book</button>
       </form>
     </div>

@@ -12,10 +12,34 @@
   margin: 0.25rem;
   padding: 1rem;
 }
-.text-area {
-  padding: 5rem;
-  max-width: 610px;
-}
+
 .modal__addbutton {
   display: block;
+}
+
+.form-addReview > input {
+  border: none;
+  border-radius: 0.15rem;
+}
+.form-addReview > label {
+  font-weight: bold;
+  margin: 0.25rem 0 0.4rem 0.2rem;
+  color: white;
+}
+
+.form-addReview > textarea {
+  border: none;
+  border-radius: 0.15rem;
+  min-width: 100%;
+  padding: 5rem;
+}
+.form-addReview > button {
+  width: 250px;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.15rem;
+  cursor: pointer;
+  background-color: $buttons-color;
+  font-weight: bold;
 }

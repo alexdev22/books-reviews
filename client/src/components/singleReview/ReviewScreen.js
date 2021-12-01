@@ -5,21 +5,23 @@ import { filterBytitle } from '../../helpers/filterBytitle'
 const ReviewScreen = ({ history }) => {
   const { id } = useParams()
   const [book, setBook] = useState([])
-
+  console.log(book)
   useEffect(() => {
     filterBytitle(id, setBook)
   }, [id])
 
-  const { title, date, pages, author } = book
+  const { title, date, pages, author, summarY } = book
 
   return (
     <div className='singleReview'>
-      <h1>{title}</h1>
-      <h1>{date}</h1>
-      <h1>{pages}</h1>
-      <h1>{author}</h1>
-      <button onClick={() => history.goBack()}>Return</button>
-
+      <div className='singleReviewContainer'>
+        <h1 className='singleReviewH1'>{title}</h1>
+        <h1>{date}</h1>
+        <h1>{pages}</h1>
+        <h1>{author}</h1>
+        <h1>{summarY}</h1>
+        <button onClick={() => history.goBack()}>Return</button>
+      </div>
     </div>
   )
 }

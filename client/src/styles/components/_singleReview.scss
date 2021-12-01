@@ -1,3 +1,18 @@
 .singleReview {
   flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleReviewContainer {
+  width: 50%;
+}
+
+.singleReviewH1 {
+  font-size: 2.5rem;
+  text-align: center;
+  text-decoration: underline;
+  color: white;
 }

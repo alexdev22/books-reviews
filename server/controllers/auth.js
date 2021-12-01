@@ -54,7 +54,8 @@ const loginUser = async (req, res) => {
         const accessToken = generateAccesToken(payload)
         res.json({
           auth: true,
-          accessToken
+          accessToken,
+          username
 
         })
       } else {
