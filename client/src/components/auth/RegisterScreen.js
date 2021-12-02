@@ -21,7 +21,7 @@ const RegisterScreen = () => {
   }
 
   return (
-    <form onSubmit={(e) => handleRegister(e)} className='register-container'>
+    <form onSubmit={(e) => handleRegister(e)} className='login-container'>
       <input onChange={handleInputChange} name='username' value={username} />
       <input onChange={handleInputChange} name='password' value={password} />
       <button>Register</button>

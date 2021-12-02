@@ -10,7 +10,7 @@ body {
 }
 
 .review-container {
-  flex: 5;
+  flex: $flex-coontainer-width;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
@@ -23,6 +23,7 @@ body {
   background: $single-review-color;
   border-radius: 5px;
 }
+
 .singleReviewAuthor {
   margin-bottom: 0.25rem;
 }
@@ -60,6 +61,17 @@ body {
   cursor: pointer;
 }
 
+.single-review > a {
+  text-decoration: none;
+}
+
+.addFirstReview {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
 @media (max-width: 600px) {
   .review-container {
     grid-template-columns: 1fr !important;

@@ -20,7 +20,7 @@ const deleteReview = (req, res) => {
 const postReview = (req, res) => {
   const { stars, date, title, pages, author, summary } = req.body
   const id = req.id
-  console.log(id)
+
   const SQL = 'INSERT INTO reviews (stars, date, title, pages, author, summary, userid) VALUES (?)'
   const values = [
     stars,

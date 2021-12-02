@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai'
 import ReviewItem from './ReviewItem'
 
-const Review = ({ id, stars, date, title, pages, author, summarY }) => {
+const Review = ({ id, stars, date, title, pages, author }) => {
   return (
     <div className='single-review'>
       <div className='singleReviewTitle'>{title}</div>

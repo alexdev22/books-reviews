@@ -2,14 +2,14 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { logout } from '../../context/AuthActions'
 import { AuthContext } from '../../context/AuthContext'
-import { BiLogOut } from 'react-icons/bi'
-
+import { BiLogOut, BiShow } from 'react-icons/bi'
+import { AiFillFileAdd } from 'react-icons/ai'
 const Sidebar = () => {
   const { dispatch, user } = useContext(AuthContext)
 
   return (
 
-    <div className='sidebar'>
+    <aside className='sidebar'>
       <div className='logoutContainer'>
         {user && (
           <>
@@ -19,16 +19,16 @@ const Sidebar = () => {
         )}
 
       </div>
-      <div className='sidebarMenu'>
+      <nav className='sidebarMenu'>
         <Link to='/addreview'>
-          <button className='addReviewBtn sidebarBtn'>Add Review</button>
+          <button className=' sidebarBtn'><AiFillFileAdd className='sidebar-icons' /></button>
         </Link>
         <Link to='/'>
-          <button className='showBooksBtn sidebarBtn'>Show Books</button>
+          <button className=' sidebarBtn'><BiShow className='sidebar-icons' /></button>
         </Link>
-      </div>
+      </nav>
 
-    </div>
+    </aside>
   )
 }
 

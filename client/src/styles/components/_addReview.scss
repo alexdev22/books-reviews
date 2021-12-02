@@ -1,5 +1,5 @@
 .container-addReview {
-  flex: 5;
+  flex: $flex-coontainer-width;
 }
 .form-addReview {
   display: flex;
@@ -8,19 +8,13 @@
   padding: 20px;
   width: 50%;
 }
-.modal-field {
-  margin: 0.25rem;
-  padding: 1rem;
-}
-
-.modal__addbutton {
-  display: block;
-}
 
 .form-addReview > input {
   border: none;
   border-radius: 0.15rem;
+  padding: 0.5rem;
 }
+
 .form-addReview > label {
   font-weight: bold;
   margin: 0.25rem 0 0.4rem 0.2rem;
@@ -41,5 +35,11 @@
   border-radius: 0.15rem;
   cursor: pointer;
   background-color: $buttons-color;
+  font-weight: bold;
+}
+
+.errorMsg {
+  color: rgb(202, 97, 97);
+  text-align: center;
   font-weight: bold;
 }

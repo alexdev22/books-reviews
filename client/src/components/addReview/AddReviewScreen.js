@@ -1,8 +1,11 @@
-import React from 'react'
+import { useState } from 'react'
 import useForm from '../../hooks/useForm'
 import Input from './Input'
+import { BiErrorAlt } from 'react-icons/bi'
+import { handleSubmit } from '../../helpers/addReviewSubmit'
 
 const AddReviewScreen = () => {
+  const [errorMsg, setErrorMsg] = useState()
   const [values, handleInputChange] = useForm({
     date: '',
     stars: 0,
@@ -12,24 +15,10 @@ const AddReviewScreen = () => {
     summary: ''
   })
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const token = JSON.parse(localStorage.getItem('user'))
-
-    fetch('http://localhost:3003/reviews', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-token': token.accessToken
-      },
-      body: JSON.stringify(values)
-    })
-  }
-
   return (
     <div className='container-addReview'>
 
-      <form onSubmit={(e) => handleSubmit(e)} className='form-addReview'>
+      <form onSubmit={(e) => handleSubmit({ ...values }, setErrorMsg, e)} className='form-addReview'>
         <label>Date</label>
         <Input handleInputChange={handleInputChange} name='date' type='date' />
         <label>Stars</label>
@@ -44,6 +33,7 @@ const AddReviewScreen = () => {
         <textarea onChange={handleInputChange} name='summary' />
         <button>Add Book</button>
       </form>
+      {errorMsg && <div className='errorMsg'>{errorMsg} <BiErrorAlt /></div>}
     </div>
 
   )

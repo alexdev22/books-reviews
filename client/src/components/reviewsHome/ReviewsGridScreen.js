@@ -13,18 +13,24 @@ const ReviewsGridScreen = () => {
       .then(response => response.json())
       .then(data => setReviews(data))
   }, [])
-
+  console.log(reviews.length)
   return (
     <section className='review-container'>
 
-      {reviews.map(review => {
-        return (
-          <div key={review.id}>
-            <Review {...review} />
-          </div>
+      {
+
+      reviews.length > 0
+        ? reviews.map(review => {
+          return (
+            <div key={review.id}>
+              <Review {...review} />
+            </div>
+          )
+        }
         )
-      }
-      )}
+        : <div className='addFirstReview'>Add your first Review...</div>
+
+    }
 
     </section>
   )
