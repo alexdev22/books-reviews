@@ -38,10 +38,14 @@ const generateAccesToken = (payload) => {
 
 const loginUser = async (req, res) => {
   const { username, password } = req.body
-  connection.query('SELECT * FROM users WHERE username=?', [username], (err, results) => {
+  const databaseUser = connection.query('SELECT * FROM users WHERE username=?', [username], (err, results) => {
     if (err) {
       console.log(err)
     }
+    if (results[0].username === undefined) {
+      return res.status(403).send('Invalid Username Or Password')
+    }
+
     bcrypt.compare(password, results[0].password, (err, result) => {
       if (result) {
         if (err) {
@@ -56,10 +60,9 @@ const loginUser = async (req, res) => {
           auth: true,
           accessToken,
           username
-
         })
       } else {
-        res.send('User Or Password is invalid')
+        res.status(403).send('Invalid Username Or Password')
       }
     })
   })
