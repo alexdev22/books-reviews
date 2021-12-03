@@ -38,11 +38,12 @@ const generateAccesToken = (payload) => {
 
 const loginUser = async (req, res) => {
   const { username, password } = req.body
+
   const databaseUser = connection.query('SELECT * FROM users WHERE username=?', [username], (err, results) => {
     if (err) {
       console.log(err)
     }
-    if (results[0].username === undefined) {
+    if (!results[0]) {
       return res.status(403).send('Invalid Username Or Password')
     }
 
@@ -62,7 +63,7 @@ const loginUser = async (req, res) => {
           username
         })
       } else {
-        res.status(403).send('Invalid Username Or Password')
+        res.status(403).json({ ok: false, msg: 'Invalid Username Or Password' })
       }
     })
   })

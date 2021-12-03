@@ -1,6 +1,6 @@
 import { LoginFailure, LoginStart, LoginSuccess } from './AuthActions'
 
-export const handleLogin = async (user, dispatch, e) => {
+export const handleLogin = async (user, dispatch, setErrorMsg, e) => {
   e.preventDefault()
   dispatch(LoginStart)
   try {
@@ -12,9 +12,10 @@ export const handleLogin = async (user, dispatch, e) => {
       body: JSON.stringify(user)
     })
     const data = await response.json()
-    console.log(data)
+
     dispatch(LoginSuccess(data))
   } catch (error) {
     dispatch(LoginFailure)
+    setErrorMsg('Invalid Username Or password')
   }
 }
