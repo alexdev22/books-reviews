@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { filterBytitle } from '../../helpers/filterBytitle'
 import { AiFillStar } from 'react-icons/ai'
-import { BsTrash } from 'react-icons/bs'
+import { BsTrash, BsArrowReturnLeft } from 'react-icons/bs'
+
+import SingleReviewItem from './SingleReviewItem'
 
 const ReviewScreen = ({ history }) => {
   const { id } = useParams()
@@ -23,17 +25,20 @@ const ReviewScreen = ({ history }) => {
   return (
     <main className='singleReview'>
       <section className='singleReviewContainer'>
-        <header>
+        <header className='singleReviewHeaderContainer'>
+          <BsArrowReturnLeft className='goBackIcon' onClick={() => history.goBack()} />
           <h1 className='singleReviewH1'>{title}</h1>
-          {[...Array(stars)].map(i => <span key={i}><AiFillStar className='star-icon' /></span>)}
-          <div className='delete'><BsTrash onClick={() => deleteReview()} /></div>
+          <div className='stars'>
+            {[...Array(stars)].map(i => <span key={i}><AiFillStar className='star-icon' /></span>)}
+          </div>
+          <div className='delete'><BsTrash className='deleteIcon' onClick={() => deleteReview()} /></div>
         </header>
-        <div className='date'>{date}</div>
-        <div className='pages'>{pages}</div>
-        <div className='author'>{author}</div>
-
-        <div className='summary'>{summarY}</div>
-        <button onClick={() => history.goBack()} className='singleReviewButton'>Return</button>
+        <div className='singleReviewItemContainer'>
+          <SingleReviewItem info={date} spanText='Date' />
+          <SingleReviewItem info={pages} spanText='Number Of pages' />
+          <SingleReviewItem info={author} spanText='Author' />
+          <SingleReviewItem info={summarY} spanText='Summary' />
+        </div>
       </section>
     </main>
   )

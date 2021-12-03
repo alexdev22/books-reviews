@@ -1,6 +1,7 @@
 .container-addReview {
   flex: $flex-coontainer-width;
 }
+
 .form-addReview {
   display: flex;
   flex-direction: column;
@@ -36,6 +37,7 @@
   cursor: pointer;
   background-color: $buttons-color;
   font-weight: bold;
+  color: white;
 }
 
 .errorMsg {

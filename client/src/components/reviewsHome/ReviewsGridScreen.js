@@ -3,6 +3,7 @@ import Review from './Review'
 
 const ReviewsGridScreen = () => {
   const [reviews, setReviews] = useState([])
+
   useEffect(() => {
     fetch('http://localhost:3003/reviews', {
       method: 'GET',
@@ -13,7 +14,7 @@ const ReviewsGridScreen = () => {
       .then(response => response.json())
       .then(data => setReviews(data))
   }, [])
-  console.log(reviews.length)
+
   return (
     <section className='review-container'>
 

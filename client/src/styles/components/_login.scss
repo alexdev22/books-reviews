@@ -22,3 +22,19 @@
   cursor: pointer;
   color: white;
 }
+
+.login-container > label {
+  font-weight: bold;
+}
+
+.loginButton {
+  background-color: $buttons-color;
+}
+
+.loginText {
+  margin-top: 1rem;
+}
+.loginText a {
+  text-decoration: none;
+  font-weight: bold;
+}

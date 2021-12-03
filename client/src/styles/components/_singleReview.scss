@@ -19,22 +19,40 @@
   color: white;
 }
 
-.singleReviewButton {
-  padding: 0.75rem;
-  border: none;
-  background-color: $buttons-color;
+.goBackIcon {
   cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  width: 180px;
-  border-radius: 5px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.date,
-.pages,
-.author,
-.summary {
+.singleReviewHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: $sidebar-color;
+  border-radius: 5px 5px 0 0;
+  padding: 0.5rem;
+}
+
+.deleteIcon {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+.singleReviewItemContainer {
+  background: $single-review-info;
+  padding: 2rem;
+}
+.singleReviewInfoItem {
+  display: flex;
+  align-items: center;
+}
+
+.singleReviewInfoItem > span {
   font-weight: bold;
+}
+.singleReviewInfo {
   margin: 0.55rem;
   font-size: 1.25rem;
 }

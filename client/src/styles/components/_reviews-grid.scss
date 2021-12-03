@@ -23,6 +23,12 @@ body {
   background: $single-review-color;
   border-radius: 5px;
 }
+.reviewGridHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
 
 .singleReviewAuthor {
   margin-bottom: 0.25rem;
@@ -33,8 +39,6 @@ body {
 .singleReviewTitle {
   font-weight: bold;
   font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
 }
 
 .singleReviewItem {
@@ -44,8 +48,9 @@ body {
 
 .labelForItem {
   margin-right: 1rem;
+  margin-bottom: 0.25rem;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .star-icon {
   color: white;
@@ -60,11 +65,9 @@ body {
   margin: 0 auto;
   cursor: pointer;
 }
-
 .single-review > a {
   text-decoration: none;
 }
-
 .addFirstReview {
   text-align: center;
   display: flex;
@@ -72,6 +75,7 @@ body {
   align-items: center;
   font-size: 2rem;
 }
+
 @media (max-width: 600px) {
   .review-container {
     grid-template-columns: 1fr !important;

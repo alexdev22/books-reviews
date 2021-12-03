@@ -22,9 +22,11 @@ const RegisterScreen = () => {
 
   return (
     <form onSubmit={(e) => handleRegister(e)} className='login-container'>
-      <input onChange={handleInputChange} name='username' value={username} />
-      <input onChange={handleInputChange} name='password' value={password} />
-      <button>Register</button>
+      <label>Username</label>
+      <input onChange={handleInputChange} required autoComplete='off' name='username' value={username} />
+      <label>Password</label>
+      <input onChange={handleInputChange} required autoComplete='off' name='password' value={password} />
+      <button className='loginButton'>Register</button>
     </form>
   )
 }

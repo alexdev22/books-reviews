@@ -16,10 +16,12 @@ const LoginScreen = () => {
   return (
     <>
       <form onSubmit={(e) => handleLogin({ username, password }, dispatch, e)} className='login-container'>
+        <label>Username</label>
         <input onChange={handleInputChange} required autoComplete='off' name='username' value={username} />
+        <label>Password</label>
         <input onChange={handleInputChange} required autoComplete='off' name='password' value={password} />
-        <button disabled={isFetching}>Login</button>
-        <p>Not having an account? <Link to='/register'>Register Here</Link>
+        <button className='loginButton' disabled={isFetching}>Login</button>
+        <p className='loginText'>Not having an account? <Link to='/register'>Register Here</Link>
         </p>
       </form>
     </>
